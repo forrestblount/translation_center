@@ -116,7 +116,7 @@ module I18n
 
         translation_key = TranslationCenter::TranslationKey.find_by_name(translation_key.join('.'))
         # don't put the inspector class if inspector is off or the key belongs to translation_center
-        if TranslationCenter::CONFIG['inspector'] == 'off' || category == 'translation_center'
+        if TranslationCenter::CONFIG['inspector'] == 'off' || category == 'translation_center' || translation_key.blank?
           %(<span class="translation_missing" title="translation missing: #{keys.join('.')}">#{key}</span>)
         else
           %(<span class="translation_missing tc-inspector-key" data-locale='#{I18n.locale}' data-type="#{translation_key.status(I18n.locale)}" data-id="#{translation_key.id}" title="translation missing: #{keys.join('.')}">#{key}</span>)
