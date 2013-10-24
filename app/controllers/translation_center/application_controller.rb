@@ -1,7 +1,6 @@
 module TranslationCenter
   class ApplicationController < ActionController::Base
     before_filter :authenticate_admin!
-    before_filter :set_user
     before_filter :translation_langs_filters
 
     if Rails.env.development?
@@ -14,13 +13,6 @@ module TranslationCenter
         render "translation_center/errors/exception"
       end
       
-    end
-
-    def set_user
-      # tc needs a current_user, but we want to use current_admin
-      if current_admin
-        current_user = current_admin
-      end
     end
 
     # defaults
@@ -41,6 +33,5 @@ module TranslationCenter
       params[:page] ||= 1
       @page = params[:page].to_i
     end
-
   end
 end
