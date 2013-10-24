@@ -1,7 +1,8 @@
 module TranslationCenter
   class ApplicationController < ActionController::Base
     before_filter :translation_langs_filters
-    before_filter :authenticate_user!
+    before_filter :authenticate_admin!
+    current_user = current_admin
 
     if Rails.env.development?
 
