@@ -1,9 +1,5 @@
 // Get the translation center engine root path
-<% if Rails.env.staging? || Rails.env.production? %>
-  translation_center_root = "http://es.staging.lexspot.com/translation_center"
-<% elsif Rails.env.development? %>
-  translation_center_root = "<%= Rails.application.routes.url_helpers.translation_center_path %>"
-<% end %>
+translation_center_root = "<%= request.protocol + request.host_with_port %>/translation_center"
 translation_center_translation_key_path = function(id) { return translation_center_root + '/translation_keys/' + id }
 
 $(document).ready(function() {
