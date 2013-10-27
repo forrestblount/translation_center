@@ -79,8 +79,13 @@ module TranslationCenter
 
     # create default translation
     def create_default_translation
-      translation = self.translations.build(value: self.name.to_s.split('.').last,
-                                            lang: :en, status: 'accepted')
+      string = self.name.to_s
+      if string.match(/[A-Z]/) # contains any caps
+        translation = self.translations.build(value: string.gsub(/^(.*)\./, "")
+      else
+        translation = self.translations.build(value: string.split('.').last,
+                        lang: :en, status: 'accepted')
+      end
       translation.translator = TranslationCenter.prepare_translator
 
       translation.save
