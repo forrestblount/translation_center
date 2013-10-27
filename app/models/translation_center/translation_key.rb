@@ -80,7 +80,7 @@ module TranslationCenter
     # create default translation
     def create_default_translation
       string = self.name.to_s
-      if string.match(/[A-Z]/) # contains any caps
+      unless string.match(/[A-Z]/).blank? # contains any caps
         translation = self.translations.build(value: string.gsub(/^(.*)\./, "")
       else
         translation = self.translations.build(value: string.split('.').last,
