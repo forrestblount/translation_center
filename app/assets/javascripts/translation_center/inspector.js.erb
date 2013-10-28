@@ -1,4 +1,5 @@
 // Get the translation center engine root path
+<% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
 translation_center_root = "<%= Rails.application.routes.url_helpers.translation_center_path %>"
 
 translation_center_translation_key_path = function(id) { return translation_center_root + '/translation_keys/' + id }
