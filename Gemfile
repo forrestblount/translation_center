@@ -20,7 +20,7 @@ gem 'jquery-ui-rails'
 gem 'mysql2'
 gem 'haml'
 gem 'haml-rails'
-gem 'acts_as_votable'
+gem 'acts_as_votable', "0.7.1"
 gem 'ya2yaml'
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
 gem 'devise'
