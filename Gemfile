@@ -15,17 +15,17 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'mysql2'
-gem 'haml'
-gem 'haml-rails'
+gem 'jquery-rails', "2.0.2"
+gem 'jquery-ui-rails', "4.0.3"
+gem 'mysql2', "0.3.12b5"
+gem 'haml', "4.0.4"
+gem 'haml-rails', "0.4"
 gem 'acts_as_votable', "0.7.1"
-gem 'ya2yaml'
+gem 'ya2yaml', "0.31"
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
-gem 'devise'
-gem 'font-awesome-rails'
-gem 'audited-activerecord'
+gem 'devise', "2.2.3"
+gem 'font-awesome-rails', "4.0.3.0"
+gem 'audited-activerecord', "3.0.0"
 
 group :development do
   gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
