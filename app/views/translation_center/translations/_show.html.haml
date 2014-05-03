@@ -17,19 +17,3 @@
           = translation.translator.send(TranslationCenter::CONFIG['identifier_type'])
         = t('.on_date')
         = format_date(translation.created_at)
-  %div.translation_voting
-    - if translation_admin?
-      = render 'translation_center/translations/accept_translation', translation: translation
-    .votes_count.badge.badge-success.pull-right
-      %span.count{ 'data-translation-id' => translation.id }
-        = translation.votes.count
-      = t('.votings')
-    %a.pull-right{href: '#'}
-      - voted = current_user.voted_on?(translation)
-      %span.badge.pull-left.translations_vote{ class: "#{voted ? 'badge-success' : ''}", 'data-translation-id' => translation.id,  voted: voted.to_s}
-        - if voted
-          = t('.unvote')
-        - else
-          = t('.vote')
-
-
