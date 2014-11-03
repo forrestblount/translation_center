@@ -3,8 +3,13 @@ module TranslationCenter
     before_filter :authenticate_admin!
     before_filter :translation_langs_filters
 
-    current_user = current_admin
-
+    helper_method :current_user
+    helper_method :current_admin
+    
+    def current_user
+      current_admin
+    end
+    
     if Rails.env.development?
 
       # if an exception happens show the error page
